@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var health = 2300.0
+signal health_depleted
 @onready var healthbar = %Health
 
 func _ready():
@@ -24,3 +25,10 @@ func take_damage(amount: float):
 	health = max(0, health)
 	healthbar.value = health
 	
+	if health <= 0.0:
+		health_depleted.emit()
+
+
+func _on_health_depleted():
+	%GameOver.visible = true
+	get_tree().paused = true
