@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dhoj2lm323mau"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssr1l"]
+bg_color = Color(0, 0.12846386, 0.018963095, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7un2"]
+bg_color = Color(0.15759891, 0.7439315, 0.15732896, 1)
+
+[node name="EnemyHealth" type="ProgressBar" unique_id=505719418]
+visible = false
+offset_left = -60.0
+offset_top = -87.0
+offset_right = 60.259247
+offset_bottom = -64.0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/background = SubResource("StyleBoxFlat_ssr1l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e7un2")
+value = 100.0
