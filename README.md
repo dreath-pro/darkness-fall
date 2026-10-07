@@ -33,7 +33,7 @@ A 2d top-down zombie shooter project built with **Godot Engine**.
 ## 🚀 How to Run the Project
 1. Clone or download this repository:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/darkness-fall.git](https://github.com/YOUR_USERNAME/darkness-fall.git)
+   git clone [https://github.com/dreath-pro/darkness-fall.git](https://github.com/dreath-pro/darkness-fall.git)
 
 ---
 
