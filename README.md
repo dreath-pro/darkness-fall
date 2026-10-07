@@ -41,3 +41,7 @@ A 2d top-down zombie shooter project built with **Godot Engine**.
 * Add cursor aiming instead of auto aim nearest zombie, and click to fire
 * Add UI for weapon selections and ammo indicator
 * Waves and zombies instead of a fixed position of zombies
+
+## 📚 Credits & Inspiration
+* Core zombie movement and player mechanics based on the tutorial from **[GDQuest]** on YouTube.
+* Custom art, sprites, and code adjustments made by me.
