@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dl8ilf4vymbns" path="res://assets/maps/grass.png" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://cojk8ci8svg2j" path="res://scenes/characters/player/player.tscn" id="2_7h61r"]
 [ext_resource type="PackedScene" uid="uid://vs4ntlxlpppt" path="res://scenes/map/tree.tscn" id="3_0sr1o"]
-[ext_resource type="PackedScene" uid="uid://u1vqp66kthih" path="res://scenes/characters/zombie/zombie.tscn" id="3_kelw5"]
 [ext_resource type="PackedScene" uid="uid://dtw1jge2jlwhy" path="res://scenes/game/health.tscn" id="5_lfrn8"]
 [ext_resource type="Script" uid="uid://ccwuw6kp84x2j" path="res://scenes/game/game.gd" id="6_5i0tg"]
 
@@ -1204,6 +1203,12 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.3832394, 0.2676224, 0.78417397, 1)
 sources/0 = SubResource("TileSetAtlasSource_7h61r")
 
+[sub_resource type="Curve2D" id="Curve2D_5i0tg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -625, -385, 0, 0, 0, 0, 610, -390, 0, 0, 0, 0, 612, 400, 0, 0, 0, 0, -639, 398, 0, 0, 0, 0, -625, -390)
+}
+point_count = 5
+
 [sub_resource type="GDScript" id="GDScript_5i0tg"]
 script/source = "extends ProgressBar
 "
@@ -1221,40 +1226,13 @@ tile_set = SubResource("TileSet_sl3ph")
 [node name="Player" parent="." unique_id=1815625049 instance=ExtResource("2_7h61r")]
 position = Vector2(584, 316)
 
-[node name="Zombies" type="Node2D" parent="." unique_id=1136263391]
+[node name="Path2D" type="Path2D" parent="Player" unique_id=392743430]
+curve = SubResource("Curve2D_5i0tg")
 
-[node name="Zombie" parent="Zombies" unique_id=309735457 instance=ExtResource("3_kelw5")]
-position = Vector2(295, 466)
-
-[node name="Zombie2" parent="Zombies" unique_id=408934844 instance=ExtResource("3_kelw5")]
-position = Vector2(164, 239)
-
-[node name="Zombie3" parent="Zombies" unique_id=320207509 instance=ExtResource("3_kelw5")]
-position = Vector2(250, 174)
-
-[node name="Zombie4" parent="Zombies" unique_id=2053951629 instance=ExtResource("3_kelw5")]
-position = Vector2(525, 578)
-
-[node name="Zombie5" parent="Zombies" unique_id=1330645187 instance=ExtResource("3_kelw5")]
-position = Vector2(834, 487)
-
-[node name="Zombie6" parent="Zombies" unique_id=1446843364 instance=ExtResource("3_kelw5")]
-position = Vector2(811, 67)
-
-[node name="Zombie7" parent="Zombies" unique_id=1427626346 instance=ExtResource("3_kelw5")]
-position = Vector2(876, 80)
-
-[node name="Zombie8" parent="Zombies" unique_id=2023251779 instance=ExtResource("3_kelw5")]
-position = Vector2(1080, 80)
-
-[node name="Zombie9" parent="Zombies" unique_id=958441043 instance=ExtResource("3_kelw5")]
-position = Vector2(1083, 406)
-
-[node name="Zombie10" parent="Zombies" unique_id=105141162 instance=ExtResource("3_kelw5")]
-position = Vector2(177, 577)
-
-[node name="Zombie11" parent="Zombies" unique_id=1429632005 instance=ExtResource("3_kelw5")]
-position = Vector2(402, 61)
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D" unique_id=1359874702]
+unique_name_in_owner = true
+position = Vector2(-625, -385)
+rotation = -0.0040485607
 
 [node name="Trees" type="Node2D" parent="." unique_id=2111201613]
 
@@ -1436,4 +1414,9 @@ theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxFlat_5i0tg")
 text = "Restart"
 
+[node name="Timer" type="Timer" parent="." unique_id=731061866]
+wait_time = 2.0
+autostart = true
+
 [connection signal="pressed" from="GameOver/ColorRect/Control/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
