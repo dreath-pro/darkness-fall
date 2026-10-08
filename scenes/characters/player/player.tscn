@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://btiojof14ut3b" path="res://assets/characters/hiro.png" id="1_e6l77"]
 [ext_resource type="Script" uid="uid://kuv3msqki1an" path="res://scenes/characters/player/player.gd" id="1_rhvw2"]
-[ext_resource type="PackedScene" uid="uid://dkr1f1bbe7k3h" path="res://scenes/weapons/pistol.tscn" id="3_686vu"]
+[ext_resource type="PackedScene" uid="uid://caqdr8df66w7j" path="res://scenes/weapons/pistol.tscn" id="3_686vu"]
 [ext_resource type="PackedScene" uid="uid://d3gjsp5b6d7br" path="res://scenes/game/hitbox.tscn" id="4_hss88"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sl3ph"]
@@ -21,8 +21,6 @@ texture = ExtResource("1_e6l77")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=964356433]
 position = Vector2(0, -18)
 
-[node name="Pistol" parent="." unique_id=1950068641 instance=ExtResource("3_686vu")]
-
 [node name="Hitbox" parent="." unique_id=528179784 instance=ExtResource("4_hss88")]
 unique_name_in_owner = true
 
@@ -31,5 +29,7 @@ unique_name_in_owner = true
 position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_sl3ph")
 debug_color = Color(0, 0.5361706, 0.23743522, 0.41960785)
+
+[node name="Pistol" parent="." unique_id=778044801 instance=ExtResource("3_686vu")]
 
 [connection signal="health_depleted" from="." to="." method="_on_health_depleted"]
