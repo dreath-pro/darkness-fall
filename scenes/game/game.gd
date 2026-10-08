@@ -2,11 +2,11 @@ extends Node2D
 
 @onready var game_over_screen = %GameOver
 
-@export var tree_scene: PackedScene = preload("uid://vs4ntlxlpppt")
+@export var tree_scene: PackedScene = preload("res://scenes/map/tree.tscn")
 @export var tree_count: int = 50
 
-@export var spawn_min: Vector2 = Vector2(100, 0)
-@export var spawn_max: Vector2 = Vector2(1000, 600)
+@export var spawn_min: Vector2 = Vector2(50, 50)
+@export var spawn_max: Vector2 = Vector2(1100, 600)
 
 func _ready() -> void:
 	spawn_tree()

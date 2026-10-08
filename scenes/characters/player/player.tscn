@@ -10,7 +10,7 @@ radius = 16.03122
 
 [node name="Player" type="CharacterBody2D" unique_id=1815625049]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_rhvw2")
 
 [node name="Hiro" type="Sprite2D" parent="." unique_id=4219938]
@@ -18,12 +18,9 @@ position = Vector2(2.842171e-14, -20)
 scale = Vector2(0.102000006, 0.097)
 texture = ExtResource("1_e6l77")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=964356433]
-position = Vector2(0, -18)
-zoom = Vector2(1.5, 1.5)
-
 [node name="Hitbox" parent="." unique_id=528179784 instance=ExtResource("4_hss88")]
 unique_name_in_owner = true
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1464908673]
 unique_name_in_owner = true

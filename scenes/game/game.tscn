@@ -1209,12 +1209,40 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="GDScript" id="GDScript_lfrn8"]
+script/source = "extends Camera2D
+
+func _ready() -> void:
+	if $Ground == null:
+		return
+		
+	var map_rect = $Ground.get_used_rect()
+	var tile_size = $Ground.tile_set.tile_size
+	
+	limit_left = map_rect.position.x * tile_size.x
+	limit_top = map_rect.position.y * tile_size.y
+	limit_right = map_rect.end.x * tile_size.x
+	limit_bottom = map_rect.end.y * tile_size.y
+"
+
 [sub_resource type="GDScript" id="GDScript_5i0tg"]
 script/source = "extends ProgressBar
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i0tg"]
 bg_color = Color(0.029170772, 0.29976824, 0.33953992, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sl3ph"]
+size = Vector2(1165, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssr1l"]
+size = Vector2(659.50037, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7un2"]
+size = Vector2(20, 657)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ft2r"]
+size = Vector2(1164, 20)
 
 [node name="Game" type="Node2D" unique_id=286008245]
 script = ExtResource("6_5i0tg")
@@ -1233,6 +1261,15 @@ curve = SubResource("Curve2D_5i0tg")
 unique_name_in_owner = true
 position = Vector2(-625, -385)
 rotation = -0.0040485607
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=140478283]
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 640
+position_smoothing_enabled = true
+script = SubResource("GDScript_lfrn8")
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=1654179962]
 
@@ -1297,7 +1334,29 @@ wait_time = 2.0
 autostart = true
 
 [node name="Tree" parent="." unique_id=889003453 instance=ExtResource("3_0sr1o")]
+top_level = false
 position = Vector2(43, 49)
+
+[node name="MapBorder" type="StaticBody2D" parent="." unique_id=729336092]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapBorder" unique_id=1893117476]
+position = Vector2(572.5, 0)
+shape = SubResource("RectangleShape2D_sl3ph")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MapBorder" unique_id=780138164]
+position = Vector2(1145.0443, 322.25018)
+rotation = 1.5706134
+shape = SubResource("RectangleShape2D_ssr1l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MapBorder" unique_id=1485018013]
+position = Vector2(0, 318.5)
+shape = SubResource("RectangleShape2D_e7un2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MapBorder" unique_id=1648316225]
+position = Vector2(572, 637)
+shape = SubResource("RectangleShape2D_5ft2r")
 
 [connection signal="pressed" from="GameOver/ColorRect/Control/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
