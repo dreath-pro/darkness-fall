@@ -1234,128 +1234,6 @@ unique_name_in_owner = true
 position = Vector2(-625, -385)
 rotation = -0.0040485607
 
-[node name="Trees" type="Node2D" parent="." unique_id=2111201613]
-
-[node name="Tree" parent="Trees" unique_id=889003453 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(256, 356)
-
-[node name="Tree2" parent="Trees" unique_id=257027569 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(399, 245)
-
-[node name="Tree3" parent="Trees" unique_id=972768924 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(332, 205)
-
-[node name="Tree4" parent="Trees" unique_id=229107440 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(990, 430)
-
-[node name="Tree5" parent="Trees" unique_id=1850720235 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(966, 362)
-
-[node name="Tree6" parent="Trees" unique_id=1791569119 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(957, 90)
-
-[node name="Tree7" parent="Trees" unique_id=462441926 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(739, 121)
-
-[node name="Tree8" parent="Trees" unique_id=1437736736 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(90, 49)
-
-[node name="Tree9" parent="Trees" unique_id=1618636747 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(60, 77)
-
-[node name="Tree10" parent="Trees" unique_id=525276927 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(354, 253)
-
-[node name="Tree11" parent="Trees" unique_id=47736772 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(378, 478)
-
-[node name="Tree12" parent="Trees" unique_id=2098256310 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(108, 565)
-
-[node name="Tree13" parent="Trees" unique_id=2101542454 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(70, 568)
-
-[node name="Tree14" parent="Trees" unique_id=1654795191 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(46, 405)
-
-[node name="Tree15" parent="Trees" unique_id=1724168350 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(76, 349)
-
-[node name="Tree16" parent="Trees" unique_id=1876223851 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(959, 463)
-
-[node name="Tree17" parent="Trees" unique_id=371523555 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(563, 124)
-
-[node name="Tree18" parent="Trees" unique_id=1864457156 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(599, 97)
-
-[node name="Tree19" parent="Trees" unique_id=71563333 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(750, 562)
-
-[node name="Tree20" parent="Trees" unique_id=1959802820 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(698, 580)
-
-[node name="Tree21" parent="Trees" unique_id=129333451 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(1112, 529)
-
-[node name="Tree22" parent="Trees" unique_id=1350914769 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(1101, 192)
-
-[node name="Tree23" parent="Trees" unique_id=556927526 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(685, 383)
-
-[node name="Tree24" parent="Trees" unique_id=940332679 instance=ExtResource("3_0sr1o")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(310, 35)
-
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=1654179962]
 
 [node name="Control" type="Control" parent="GameUI" unique_id=1855391547]
@@ -1417,6 +1295,9 @@ text = "Restart"
 [node name="Timer" type="Timer" parent="." unique_id=731061866]
 wait_time = 2.0
 autostart = true
+
+[node name="Tree" parent="." unique_id=889003453 instance=ExtResource("3_0sr1o")]
+position = Vector2(43, 49)
 
 [connection signal="pressed" from="GameOver/ColorRect/Control/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

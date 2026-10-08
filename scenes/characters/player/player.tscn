@@ -20,6 +20,7 @@ texture = ExtResource("1_e6l77")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=964356433]
 position = Vector2(0, -18)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Hitbox" parent="." unique_id=528179784 instance=ExtResource("4_hss88")]
 unique_name_in_owner = true
