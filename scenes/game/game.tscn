@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://vs4ntlxlpppt" path="res://scenes/map/tree.tscn" id="3_0sr1o"]
 [ext_resource type="Texture2D" uid="uid://brtun1ans2qsn" path="res://assets/icons/heart_icon.png" id="4_5i0tg"]
 [ext_resource type="Script" uid="uid://ccwuw6kp84x2j" path="res://scenes/game/game.gd" id="6_5i0tg"]
+[ext_resource type="Texture2D" uid="uid://dvk8cndlcrjfi" path="res://assets/icons/fist.png" id="6_87uf6"]
 [ext_resource type="Texture2D" uid="uid://4q0ftid2dkba" path="res://assets/icons/energy_icon.png" id="6_bdhmt"]
+[ext_resource type="Texture2D" uid="uid://bk04xeibi34wb" path="res://assets/weapons/pistol.png" id="7_87uf6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7h61r"]
 texture = ExtResource("1_sul5r")
@@ -1238,6 +1240,26 @@ bg_color = Color(0.004845533, 0.03572098, 0.118791424, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssr1l"]
 bg_color = Color(0.2776248, 0.8012881, 0.9315428, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jirj"]
+bg_color = Color(0.18359044, 0.18359044, 0.18359044, 0.46666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a8rs"]
+bg_color = Color(0.14509805, 0.13333334, 0.13725491, 0.7882353)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_2a8rs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaxfo"]
+bg_color = Color(0.18431373, 0.18431373, 0.18431373, 0.46666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4j704"]
+bg_color = Color(0.14509805, 0.13333334, 0.13725491, 0.7882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftsea"]
+bg_color = Color(0.18431373, 0.18431373, 0.18431373, 0.46666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp23o"]
+bg_color = Color(0.14509805, 0.13333334, 0.13725491, 0.7882353)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i0tg"]
 bg_color = Color(0.029170772, 0.29976824, 0.33953992, 1)
 
@@ -1335,6 +1357,84 @@ size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_sl3ph")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ssr1l")
 value = 100.0
+
+[node name="Item" type="HBoxContainer" parent="GameUI/Control" unique_id=970959968]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 517.0
+offset_right = 747.0
+offset_bottom = 614.0
+alignment = 1
+
+[node name="item1" type="Button" parent="GameUI/Control/Item" unique_id=312585388]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_5jirj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2a8rs")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_2a8rs")
+icon = ExtResource("6_87uf6")
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="GameUI/Control/Item/item1" unique_id=1679346717]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 19
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item2" type="Button" parent="GameUI/Control/Item" unique_id=241475511]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_vaxfo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4j704")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_2a8rs")
+icon = ExtResource("7_87uf6")
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="GameUI/Control/Item/item2" unique_id=1113414300]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 19
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item3" type="Button" parent="GameUI/Control/Item" unique_id=1678939727]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ftsea")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kp23o")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_2a8rs")
+icon = ExtResource("6_bdhmt")
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="GameUI/Control/Item/item3" unique_id=1608548365]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 19
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameOver" type="CanvasLayer" parent="." unique_id=1646047260]
 unique_name_in_owner = true

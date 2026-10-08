@@ -10,6 +10,7 @@ extends Node2D
 
 func _ready() -> void:
 	spawn_tree()
+	
 
 func spawn_tree() -> void:
 	if tree_scene == null:
