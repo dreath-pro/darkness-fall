@@ -3,6 +3,11 @@ A 2d top-down zombie shooter project built with **Godot Engine**.
 
 > *Survive a wave of zombies, manage health and ammos to last longer*
 
+<img width="1149" height="646" alt="Screenshot 2026-10-08 222526" src="https://github.com/user-attachments/assets/15ec3d19-390b-4ecc-a96a-0e18093d287c" />
+<img width="1148" height="642" alt="Screenshot 2026-10-08 222753" src="https://github.com/user-attachments/assets/cdf33d96-9d8c-42a2-949c-81bbbee18f45" />
+<img width="1148" height="644" alt="Screenshot 2026-10-08 222708" src="https://github.com/user-attachments/assets/b7a9de73-5f13-4664-8f45-99ba59267955" />
+<img width="1150" height="644" alt="Screenshot 2026-10-08 222721" src="https://github.com/user-attachments/assets/56056a31-fe3a-4fec-8737-f667b462565c" />
+
 ---
 
 ## 🎮 Features & Mechanics
@@ -27,6 +32,8 @@ A 2d top-down zombie shooter project built with **Godot Engine**.
 | **Move Down** | `S` / `Down Arrow` |
 | **Move Left** | `A` / `Left Arrow` |
 | **Move Right** | `D` / `Right Arrow` |
+| **Sprint** | `SHIFT` |
+| **Aim and Shoot** | `Hover and Left Mouse Button` |
 
 ---
 
@@ -38,9 +45,9 @@ A 2d top-down zombie shooter project built with **Godot Engine**.
 ---
 
 ## Planned features
-* Add cursor aiming instead of auto aim nearest zombie, and click to fire
+* ✅ Add cursor aiming instead of auto aim nearest zombie, and click to fire
+* ✅ Waves and zombies instead of a fixed position of zombies
 * Add UI for weapon selections and ammo indicator
-* Waves and zombies instead of a fixed position of zombies
 
 ## 📚 Credits & Inspiration
 * Core zombie movement and player mechanics based on the tutorial from **[GDQuest]** on YouTube.
