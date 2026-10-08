@@ -3,8 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dl8ilf4vymbns" path="res://assets/maps/grass.png" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://cojk8ci8svg2j" path="res://scenes/characters/player/player.tscn" id="2_7h61r"]
 [ext_resource type="PackedScene" uid="uid://vs4ntlxlpppt" path="res://scenes/map/tree.tscn" id="3_0sr1o"]
-[ext_resource type="PackedScene" uid="uid://dtw1jge2jlwhy" path="res://scenes/game/health.tscn" id="5_lfrn8"]
+[ext_resource type="Texture2D" uid="uid://brtun1ans2qsn" path="res://assets/icons/heart_icon.png" id="4_5i0tg"]
 [ext_resource type="Script" uid="uid://ccwuw6kp84x2j" path="res://scenes/game/game.gd" id="6_5i0tg"]
+[ext_resource type="Texture2D" uid="uid://4q0ftid2dkba" path="res://assets/icons/energy_icon.png" id="6_bdhmt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7h61r"]
 texture = ExtResource("1_sul5r")
@@ -1225,9 +1226,17 @@ func _ready() -> void:
 	limit_bottom = map_rect.end.y * tile_size.y
 "
 
-[sub_resource type="GDScript" id="GDScript_5i0tg"]
-script/source = "extends ProgressBar
-"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdhmt"]
+bg_color = Color(0.15686275, 0, 0.019607844, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87uf6"]
+bg_color = Color(0.94509804, 0.15686275, 0.23137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl3ph"]
+bg_color = Color(0.004845533, 0.03572098, 0.118791424, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssr1l"]
+bg_color = Color(0.2776248, 0.8012881, 0.9315428, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i0tg"]
 bg_color = Color(0.029170772, 0.29976824, 0.33953992, 1)
@@ -1279,18 +1288,53 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 641.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/Control" unique_id=967471501]
+[node name="HealthEnergy" type="VBoxContainer" parent="GameUI/Control" unique_id=967471501]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 19.0
 offset_top = 546.0
-offset_right = 400.0
+offset_right = 335.0
 offset_bottom = 623.0
 alignment = 1
 
-[node name="Health" parent="GameUI/Control/VBoxContainer" unique_id=787470778 instance=ExtResource("5_lfrn8")]
+[node name="HealthIcon" type="HBoxContainer" parent="GameUI/Control/HealthEnergy" unique_id=1302327208]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/Control/HealthEnergy/HealthIcon" unique_id=1745912755]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("4_5i0tg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Health" type="ProgressBar" parent="GameUI/Control/HealthEnergy/HealthIcon" unique_id=1470029860]
 unique_name_in_owner = true
 layout_mode = 2
-script = SubResource("GDScript_5i0tg")
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_bdhmt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_87uf6")
+value = 100.0
+
+[node name="EnergyIcon" type="HBoxContainer" parent="GameUI/Control/HealthEnergy" unique_id=621126017]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/Control/HealthEnergy/EnergyIcon" unique_id=448280231]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("6_bdhmt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Energy" type="ProgressBar" parent="GameUI/Control/HealthEnergy/EnergyIcon" unique_id=1322611168]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_sl3ph")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ssr1l")
+value = 100.0
 
 [node name="GameOver" type="CanvasLayer" parent="." unique_id=1646047260]
 unique_name_in_owner = true
