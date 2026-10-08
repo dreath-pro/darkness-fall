@@ -4,13 +4,23 @@ var health = 2300.0
 signal health_depleted
 @onready var healthbar = %Health
 
+var energy = 100
+@onready var energybar = %Energy
+
 func _ready():
 	healthbar.max_value = health
 	healthbar.value = health
+	
+	energybar.max_value = energy
+	energybar.value = energy
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * 230
+	if Input.is_action_pressed("sprint") and direction != Vector2.ZERO and energy > 0:
+		velocity = direction * 300
+		drain_energy(30 * delta)
+	else:
+		velocity = direction * 150
 	move_and_slide()
 	
 	var touching_zombie = %Hitbox.get_overlapping_bodies()
@@ -19,6 +29,10 @@ func _physics_process(delta):
 			if "damage" in zombie:
 				take_damage(zombie.damage * delta)
 
+func drain_energy(amount: float):
+	energy -= amount
+	energy = max(0, energy)
+	energybar.value = energy
 
 func take_damage(amount: float):
 	health -= amount
@@ -28,7 +42,15 @@ func take_damage(amount: float):
 	if health <= 0.0:
 		health_depleted.emit()
 
-
 func _on_health_depleted():
 	%GameOver.visible = true
 	get_tree().paused = true
+
+
+func _on_timer_timeout():
+	energy += 2
+	
+	if energy >= 100:
+		energy = 100
+	
+	energybar.value = energy
