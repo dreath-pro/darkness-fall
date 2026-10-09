@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://4q0ftid2dkba" path="res://assets/icons/energy_icon.png" id="6_bdhmt"]
 [ext_resource type="Texture2D" uid="uid://bk04xeibi34wb" path="res://assets/weapons/pistol.png" id="7_87uf6"]
 [ext_resource type="Texture2D" uid="uid://cf2hfolkxhsbo" path="res://assets/weapons/ar15.png" id="8_2a8rs"]
+[ext_resource type="Texture2D" uid="uid://cjyvp3hqr7soh" path="res://assets/icons/bullet_icon.png" id="9_4j704"]
+[ext_resource type="Script" uid="uid://c6bh15swrlv0w" path="res://scenes/game/ammo_label.gd" id="10_kp23o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7h61r"]
 texture = ExtResource("1_sul5r")
@@ -1261,6 +1263,8 @@ bg_color = Color(0.18431373, 0.18431373, 0.18431373, 0.46666667)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp23o"]
 bg_color = Color(0.14509805, 0.13333334, 0.13725491, 0.7882353)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kp23o"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i0tg"]
 bg_color = Color(0.029170772, 0.29976824, 0.33953992, 1)
 
@@ -1460,6 +1464,31 @@ offset_right = 95.0
 text = "AR15"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Ammo" type="HBoxContainer" parent="GameUI/Control" unique_id=505819700]
+layout_mode = 0
+offset_left = 717.0
+offset_top = 556.0
+offset_right = 812.0
+offset_bottom = 566.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/Control/Ammo" unique_id=1809471803]
+layout_mode = 2
+texture = ExtResource("9_4j704")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ammo_label" type="Label" parent="GameUI/Control/Ammo" unique_id=791705800]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kp23o")
+text = "0/0"
+vertical_alignment = 1
+text_overrun_behavior = 1
+script = ExtResource("10_kp23o")
 
 [node name="GameOver" type="CanvasLayer" parent="." unique_id=1646047260]
 unique_name_in_owner = true

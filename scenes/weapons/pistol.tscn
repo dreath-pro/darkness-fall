@@ -14,3 +14,8 @@ texture = ExtResource("1_4jni1")
 [node name="Barrel" type="Marker2D" parent="Sprite2D" unique_id=43997898]
 unique_name_in_owner = true
 position = Vector2(125.00002, -41.666676)
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=993516756]
+wait_time = 2.0
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

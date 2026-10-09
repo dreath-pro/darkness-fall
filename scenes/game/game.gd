@@ -10,6 +10,9 @@ extends Node2D
 @export var spawn_min: Vector2 = Vector2(50, 50)
 @export var spawn_max: Vector2 = Vector2(1100, 600)
 
+@onready var pistol = $Player/Pistol
+@onready var ammo_label: Label = %ammo_label
+
 var random_x
 var random_y
 var random_pos
@@ -17,6 +20,19 @@ var random_pos
 func _ready() -> void:
 	spawn_tree()
 	
+	pistol.reloading.connect(reloadingLabel)
+	reloadingLabel(pistol.is_reloading)
+	
+	pistol.ammo_changed.connect(_on_pistol_ammo_changed)
+	_on_pistol_ammo_changed(pistol.mag_ammo, pistol.reserve_ammo)
+	
+
+func reloadingLabel(isReloading: bool) -> void:
+	if isReloading:
+		ammo_label.text = "Reloading"
+
+func _on_pistol_ammo_changed(current: int, reserve: int) -> void:
+	ammo_label.text = "%d / %d" % [current, reserve]
 
 func spawnRandomizer() -> void:
 	random_x = randf_range(spawn_min.x, spawn_max.x)
