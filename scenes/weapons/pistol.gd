@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	else:
 		scale.y = 1
 			
-			
+
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
@@ -44,20 +44,24 @@ func shoot():
 			mag_ammo -= 1
 			ammo_changed.emit(mag_ammo, reserve_ammo)
 		else:
-			if reserve_ammo > 0:
-				reload()
-				is_reloading = true
-				reloading.emit(is_reloading)
-				reload_timer.start()
-				
+			reload()
 
 func reload():
 	for i in max_mag:
-		if mag_ammo < max_mag:
-			mag_ammo += 1
-			reserve_ammo -= 1
-		else:
+		if reserve_ammo <= 0:
 			return
+		elif mag_ammo > max_mag:
+			return
+		elif is_reloading:
+			return
+	
+	
+		mag_ammo += 1
+		reserve_ammo -= 1
+
+	is_reloading = true
+	reloading.emit(is_reloading)
+	reload_timer.start()
 
 func _on_reload_timer_timeout():
 	is_reloading = false

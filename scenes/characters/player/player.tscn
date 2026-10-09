@@ -29,6 +29,7 @@ shape = SubResource("CircleShape2D_sl3ph")
 debug_color = Color(0, 0.5361706, 0.23743522, 0.41960785)
 
 [node name="Pistol" parent="." unique_id=778044801 instance=ExtResource("3_686vu")]
+unique_name_in_owner = true
 
 [node name="Timer" type="Timer" parent="." unique_id=2054454590]
 unique_name_in_owner = true

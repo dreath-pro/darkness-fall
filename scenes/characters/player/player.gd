@@ -15,6 +15,11 @@ func _ready():
 	energybar.max_value = energy
 	energybar.value = energy
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("reload") and not event.is_echo():
+		print("Reloading")
+		$Pistol.reload()
+
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if Input.is_action_pressed("sprint") and direction != Vector2.ZERO and energy > 0:
