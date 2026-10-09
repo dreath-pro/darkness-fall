@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var health = 2300.0
+const max_health = 2300.0
+var health = max_health
 signal health_depleted
 @onready var healthbar = %Health
 
@@ -33,6 +34,15 @@ func drain_energy(amount: float):
 	energy -= amount
 	energy = max(0, energy)
 	energybar.value = energy
+
+
+func receive_heal(amount: float):
+	health += amount
+	
+	if health >= max_health:
+		health = max_health
+		
+	healthbar.value = health
 
 func take_damage(amount: float):
 	health -= amount

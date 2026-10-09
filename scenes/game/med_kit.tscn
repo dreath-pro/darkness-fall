@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://du4khabmx424o"]
+
+[ext_resource type="Script" uid="uid://c2np6u66rstpc" path="res://scenes/game/med_kit.gd" id="1_b68vt"]
+[ext_resource type="Texture2D" uid="uid://byss6gh026v18" path="res://assets/icons/med_kit.png" id="1_dh6ql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sl3ph"]
+size = Vector2(37, 38)
+
+[node name="MedKit" type="Area2D" unique_id=2111670429]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_b68vt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=116886087]
+unique_name_in_owner = true
+scale = Vector2(0.12799999, 0.12799999)
+texture = ExtResource("1_dh6ql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1444804910]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_sl3ph")
+
+[node name="DispawnTimer" type="Timer" parent="." unique_id=939916462]
+unique_name_in_owner = true
+wait_time = 15.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DispawnTimer" to="." method="_on_dispawn_timer_timeout"]

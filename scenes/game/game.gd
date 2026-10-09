@@ -2,15 +2,38 @@ extends Node2D
 
 @onready var game_over_screen = %GameOver
 
+@export var med_kit_scene: PackedScene = preload("res://scenes/game/med_kit.tscn")
+
 @export var tree_scene: PackedScene = preload("res://scenes/map/tree.tscn")
 @export var tree_count: int = 50
 
 @export var spawn_min: Vector2 = Vector2(50, 50)
 @export var spawn_max: Vector2 = Vector2(1100, 600)
 
+var random_x
+var random_y
+var random_pos
+
 func _ready() -> void:
 	spawn_tree()
 	
+
+func spawnRandomizer() -> void:
+	random_x = randf_range(spawn_min.x, spawn_max.x)
+	random_y = randf_range(spawn_min.y, spawn_max.y)
+	random_pos = Vector2(random_x, random_y)
+
+func spawn_med_kit() -> void:
+	if med_kit_scene == null:
+		print("Med Kit is not assigned in the Inspector!")
+		return
+		
+	spawnRandomizer()
+		
+	var med_kit_instance = med_kit_scene.instantiate()
+	med_kit_instance.global_position = random_pos
+		
+	add_child(med_kit_instance)
 
 func spawn_tree() -> void:
 	if tree_scene == null:
@@ -18,9 +41,7 @@ func spawn_tree() -> void:
 		return
 	
 	for i in range(tree_count):
-		var random_x = randf_range(spawn_min.x, spawn_max.x)
-		var random_y = randf_range(spawn_min.y, spawn_max.y)
-		var random_pos = Vector2(random_x, random_y)
+		spawnRandomizer()
 		
 		var tree_instance = tree_scene.instantiate()
 		tree_instance.global_position = random_pos
@@ -46,3 +67,7 @@ func _on_restart_button_pressed():
 
 func _on_timer_timeout():
 	spawn_zombie()
+
+
+func _on_med_kit_spawn_timer_timeout():
+	spawn_med_kit()

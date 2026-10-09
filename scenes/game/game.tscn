@@ -1473,7 +1473,7 @@ theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxFlat_5i0tg")
 text = "Restart"
 
-[node name="Timer" type="Timer" parent="." unique_id=731061866]
+[node name="ZombieSpawnTime" type="Timer" parent="." unique_id=731061866]
 wait_time = 2.0
 autostart = true
 
@@ -1502,5 +1502,10 @@ shape = SubResource("RectangleShape2D_e7un2")
 position = Vector2(572, 637)
 shape = SubResource("RectangleShape2D_5ft2r")
 
+[node name="MedKitSpawnTimer" type="Timer" parent="." unique_id=1498312214]
+wait_time = 25.0
+autostart = true
+
 [connection signal="pressed" from="GameOver/ColorRect/Control/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ZombieSpawnTime" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MedKitSpawnTimer" to="." method="_on_med_kit_spawn_timer_timeout"]
