@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvk8cndlcrjfi"
-path="res://.godot/imported/fist.png-a83aaa3556cb385d8eafc253dc4b79e1.ctex"
+uid="uid://c6ts2uil8htcj"
+path="res://.godot/imported/ammo.png-a3c4c9447084716e92e03ff15caf3976.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/fist.png"
-dest_files=["res://.godot/imported/fist.png-a83aaa3556cb385d8eafc253dc4b79e1.ctex"]
+source_file="res://assets/icons/ammo.png"
+dest_files=["res://.godot/imported/ammo.png-a3c4c9447084716e92e03ff15caf3976.ctex"]
 
 [params]
 

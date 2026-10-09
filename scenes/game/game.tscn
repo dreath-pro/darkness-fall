@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://vs4ntlxlpppt" path="res://scenes/map/tree.tscn" id="3_0sr1o"]
 [ext_resource type="Texture2D" uid="uid://brtun1ans2qsn" path="res://assets/icons/heart_icon.png" id="4_5i0tg"]
 [ext_resource type="Script" uid="uid://ccwuw6kp84x2j" path="res://scenes/game/game.gd" id="6_5i0tg"]
-[ext_resource type="Texture2D" uid="uid://dvk8cndlcrjfi" path="res://assets/icons/fist.png" id="6_87uf6"]
+[ext_resource type="Texture2D" uid="uid://dvk8cndlcrjfi" path="res://assets/weapons/fist.png" id="6_87uf6"]
 [ext_resource type="Texture2D" uid="uid://4q0ftid2dkba" path="res://assets/icons/energy_icon.png" id="6_bdhmt"]
 [ext_resource type="Texture2D" uid="uid://bk04xeibi34wb" path="res://assets/weapons/pistol.png" id="7_87uf6"]
+[ext_resource type="Texture2D" uid="uid://cf2hfolkxhsbo" path="res://assets/weapons/ar15.png" id="8_2a8rs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7h61r"]
 texture = ExtResource("1_sul5r")
@@ -1360,9 +1361,9 @@ value = 100.0
 
 [node name="Item" type="HBoxContainer" parent="GameUI/Control" unique_id=970959968]
 layout_mode = 0
-offset_left = 411.0
-offset_top = 517.0
-offset_right = 747.0
+offset_left = 400.0
+offset_top = 542.0
+offset_right = 692.0
 offset_bottom = 614.0
 alignment = 1
 
@@ -1381,12 +1382,20 @@ alignment = 0
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GameUI/Control/Item/item1" unique_id=1679346717]
+[node name="hotkey" type="Label" parent="GameUI/Control/Item/item1" unique_id=1679346717]
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 27.0
 theme_override_font_sizes/font_size = 19
 text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_name1" type="Label" parent="GameUI/Control/Item/item1" unique_id=732815720]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 94.0
+text = "Fist"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1404,12 +1413,20 @@ alignment = 0
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GameUI/Control/Item/item2" unique_id=1113414300]
+[node name="hotkey" type="Label" parent="GameUI/Control/Item/item2" unique_id=1113414300]
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 27.0
 theme_override_font_sizes/font_size = 19
 text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_name2" type="Label" parent="GameUI/Control/Item/item2" unique_id=1609329934]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 95.0
+text = "Pistol"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1422,17 +1439,25 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ftsea")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kp23o")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_2a8rs")
-icon = ExtResource("6_bdhmt")
+icon = ExtResource("8_2a8rs")
 alignment = 0
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="GameUI/Control/Item/item3" unique_id=1608548365]
+[node name="hotkey" type="Label" parent="GameUI/Control/Item/item3" unique_id=1608548365]
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 27.0
 theme_override_font_sizes/font_size = 19
 text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_name3" type="Label" parent="GameUI/Control/Item/item3" unique_id=1406363868]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 95.0
+text = "AR15"
 horizontal_alignment = 1
 vertical_alignment = 1
 
